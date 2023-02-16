@@ -1,4 +1,4 @@
-package com.github.tobato.soket.server;
+package com.github.tobato.socket.server;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ public class Handler implements Runnable {
      */
     private final Logger LOGGER = LoggerFactory.getLogger(Handler.class);
 
-    private Socket socket;
+    private final Socket socket;
 
     public Handler(Socket socket) {
         this.socket = socket;

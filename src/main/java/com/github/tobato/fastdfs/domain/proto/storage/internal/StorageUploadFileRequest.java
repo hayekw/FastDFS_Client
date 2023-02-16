@@ -1,12 +1,12 @@
 package com.github.tobato.fastdfs.domain.proto.storage.internal;
 
-import java.io.InputStream;
-
 import com.github.tobato.fastdfs.domain.proto.CmdConstants;
 import com.github.tobato.fastdfs.domain.proto.FdfsRequest;
 import com.github.tobato.fastdfs.domain.proto.OtherConstants;
 import com.github.tobato.fastdfs.domain.proto.ProtoHead;
 import com.github.tobato.fastdfs.domain.proto.mapper.FdfsColumn;
+
+import java.io.InputStream;
 
 /**
  * 文件上传命令
@@ -27,7 +27,7 @@ public class StorageUploadFileRequest extends FdfsRequest {
      * 发送文件长度
      */
     @FdfsColumn(index = 1)
-    private long fileSize;
+    private final long fileSize;
     /**
      * 文件扩展名
      */

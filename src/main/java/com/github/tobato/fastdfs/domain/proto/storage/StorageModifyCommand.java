@@ -1,10 +1,10 @@
 package com.github.tobato.fastdfs.domain.proto.storage;
 
-import java.io.InputStream;
-
 import com.github.tobato.fastdfs.domain.proto.AbstractFdfsCommand;
 import com.github.tobato.fastdfs.domain.proto.FdfsResponse;
 import com.github.tobato.fastdfs.domain.proto.storage.internal.StorageModifyRequest;
+
+import java.io.InputStream;
 
 /**
  * 文件修改命令
@@ -25,7 +25,7 @@ public class StorageModifyCommand extends AbstractFdfsCommand<Void> {
         super();
         this.request = new StorageModifyRequest(inputStream, fileSize, path, fileOffset);
         // 输出响应
-        this.response = new FdfsResponse<Void>() {
+        this.response = new FdfsResponse<>() {
             // default response
         };
     }

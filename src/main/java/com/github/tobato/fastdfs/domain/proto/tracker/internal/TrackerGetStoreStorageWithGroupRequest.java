@@ -1,12 +1,11 @@
 package com.github.tobato.fastdfs.domain.proto.tracker.internal;
 
-import org.apache.commons.lang3.Validate;
-
 import com.github.tobato.fastdfs.domain.proto.CmdConstants;
 import com.github.tobato.fastdfs.domain.proto.FdfsRequest;
 import com.github.tobato.fastdfs.domain.proto.OtherConstants;
 import com.github.tobato.fastdfs.domain.proto.ProtoHead;
 import com.github.tobato.fastdfs.domain.proto.mapper.FdfsColumn;
+import org.apache.commons.lang3.Validate;
 
 /**
  * 按分组获取存储节点
@@ -20,7 +19,7 @@ public class TrackerGetStoreStorageWithGroupRequest extends FdfsRequest {
     /**
      * 分组定义
      */
-    @FdfsColumn(index = 0, max = OtherConstants.FDFS_GROUP_NAME_MAX_LEN)
+    @FdfsColumn(max = OtherConstants.FDFS_GROUP_NAME_MAX_LEN)
     private final String groupName;
 
     /**

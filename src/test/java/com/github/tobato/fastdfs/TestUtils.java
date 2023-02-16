@@ -1,11 +1,6 @@
 package com.github.tobato.fastdfs;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 
 /**
@@ -25,7 +20,6 @@ public class TestUtils {
      * 
      * @param text
      * @return
-     * @throws IOException
      */
     public static InputStream getTextInputStream(String text) {
         // 将String转换为InputStream
@@ -37,7 +31,6 @@ public class TestUtils {
      * 
      * @param text
      * @return
-     * @throws IOException
      */
     public static long getTextLength(String text) {
         return text.getBytes(TestConstants.DEFAULT_CHARSET).length;
@@ -62,8 +55,7 @@ public class TestUtils {
      */
     public static File getFile(String path) {
         URL url = TestUtils.class.getResource(path);
-        File file = new File(url.getFile());
-        return file;
+        return new File(url.getFile());
     }
 
 }

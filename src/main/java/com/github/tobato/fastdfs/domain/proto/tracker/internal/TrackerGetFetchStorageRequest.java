@@ -1,13 +1,12 @@
 package com.github.tobato.fastdfs.domain.proto.tracker.internal;
 
-import org.apache.commons.lang3.Validate;
-
 import com.github.tobato.fastdfs.domain.proto.CmdConstants;
 import com.github.tobato.fastdfs.domain.proto.FdfsRequest;
 import com.github.tobato.fastdfs.domain.proto.OtherConstants;
 import com.github.tobato.fastdfs.domain.proto.ProtoHead;
 import com.github.tobato.fastdfs.domain.proto.mapper.DynamicFieldType;
 import com.github.tobato.fastdfs.domain.proto.mapper.FdfsColumn;
+import org.apache.commons.lang3.Validate;
 
 /**
  * 获取源服务器
@@ -22,13 +21,13 @@ public class TrackerGetFetchStorageRequest extends FdfsRequest {
     /**
      * 组名
      */
-    @FdfsColumn(index = 0, max = OtherConstants.FDFS_GROUP_NAME_MAX_LEN)
-    private String groupName;
+    @FdfsColumn(max = OtherConstants.FDFS_GROUP_NAME_MAX_LEN)
+    private final String groupName;
     /**
      * 路径名
      */
     @FdfsColumn(index = 1, dynamicField = DynamicFieldType.allRestByte)
-    private String path;
+    private final String path;
 
     /**
      * 获取文件源服务器

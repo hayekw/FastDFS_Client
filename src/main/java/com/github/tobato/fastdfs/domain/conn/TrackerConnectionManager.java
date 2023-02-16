@@ -4,11 +4,10 @@ import com.github.tobato.fastdfs.FdfsClientConstants;
 import com.github.tobato.fastdfs.domain.fdfs.TrackerLocator;
 import com.github.tobato.fastdfs.domain.proto.FdfsCommand;
 import com.github.tobato.fastdfs.exception.FdfsConnectException;
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.validation.constraints.NotNull;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +29,8 @@ public class TrackerConnectionManager extends FdfsConnectionManager {
     /**
      * tracker服务配置地址列表
      */
-    @NotNull
-    private List<String> trackerList = new ArrayList<String>();
+//    @NotNull
+    private List<String> trackerList = new ArrayList<>();
 
     /**
      * 构造函数
@@ -63,7 +62,7 @@ public class TrackerConnectionManager extends FdfsConnectionManager {
      * @return
      */
     public <T> T executeFdfsTrackerCmd(FdfsCommand<T> command) {
-        Connection conn = null;
+        Connection conn;
         InetSocketAddress address = null;
         // 获取连接
         try {

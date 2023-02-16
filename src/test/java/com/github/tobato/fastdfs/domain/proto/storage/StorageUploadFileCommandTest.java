@@ -1,9 +1,8 @@
 package com.github.tobato.fastdfs.domain.proto.storage;
 
-import org.junit.Test;
-
 import com.github.tobato.fastdfs.TestConstants;
 import com.github.tobato.fastdfs.domain.proto.StorageCommandTestBase;
+import org.junit.Test;
 
 /**
  * 文件上传命令测试

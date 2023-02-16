@@ -1,10 +1,10 @@
 package com.github.tobato.fastdfs.exception;
 
+import com.github.tobato.fastdfs.domain.proto.ErrorCodeConstants;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.github.tobato.fastdfs.domain.proto.ErrorCodeConstants;
 
 /**
  * fastdfs服务端返回的错误码构成的异常
@@ -25,7 +25,7 @@ public class FdfsServerException extends FdfsException {
     private static final Map<Integer, String> CODE_MESSAGE_MAPPING;
 
     static {
-        Map<Integer, String> mapping = new HashMap<Integer, String>();
+        Map<Integer, String> mapping = new HashMap<>();
         mapping.put((int) ErrorCodeConstants.ERR_NO_ENOENT, "找不到节点或文件");
         mapping.put((int) ErrorCodeConstants.ERR_NO_EIO, "服务端发生io异常");
         mapping.put((int) ErrorCodeConstants.ERR_NO_EINVAL, "无效的参数");
@@ -36,7 +36,7 @@ public class FdfsServerException extends FdfsException {
         CODE_MESSAGE_MAPPING = Collections.unmodifiableMap(mapping);
     }
 
-    private int errorCode;
+    private final int errorCode;
 
     /**
      *

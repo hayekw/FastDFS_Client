@@ -1,13 +1,13 @@
 package com.github.tobato.fastdfs.domain.proto.storage.internal;
 
-import java.io.InputStream;
-
 import com.github.tobato.fastdfs.domain.proto.CmdConstants;
 import com.github.tobato.fastdfs.domain.proto.FdfsRequest;
 import com.github.tobato.fastdfs.domain.proto.OtherConstants;
 import com.github.tobato.fastdfs.domain.proto.ProtoHead;
 import com.github.tobato.fastdfs.domain.proto.mapper.DynamicFieldType;
 import com.github.tobato.fastdfs.domain.proto.mapper.FdfsColumn;
+
+import java.io.InputStream;
 
 /**
  * 从文件上传命令
@@ -19,7 +19,7 @@ public class StorageUploadSlaveFileRequest extends FdfsRequest {
     /**
      * 主文件名长度
      */
-    @FdfsColumn(index = 0)
+    @FdfsColumn
     private long masterFileNameSize;
     /**
      * 发送文件长度
@@ -45,13 +45,11 @@ public class StorageUploadSlaveFileRequest extends FdfsRequest {
     /**
      * 构造函数
      *
-     * @param storeIndex
      * @param inputStream
      * @param masterFilename
      * @param fileExtName
      * @param prefixName
      * @param fileSize
-     * @param isAppenderFile
      */
     public StorageUploadSlaveFileRequest(InputStream inputStream, long fileSize, String masterFilename,
                                          String prefixName, String fileExtName) {

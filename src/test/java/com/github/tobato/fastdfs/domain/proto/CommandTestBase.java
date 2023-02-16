@@ -1,12 +1,11 @@
 package com.github.tobato.fastdfs.domain.proto;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.github.tobato.fastdfs.TestConstants;
 import com.github.tobato.fastdfs.domain.conn.FdfsConnectionManager;
 import com.github.tobato.fastdfs.domain.conn.FdfsConnectionPool;
 import com.github.tobato.fastdfs.domain.conn.PooledConnectionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * command测试基类

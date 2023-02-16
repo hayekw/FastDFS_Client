@@ -1,11 +1,10 @@
 package com.github.tobato.fastdfs.domain.fdfs;
 
-import org.apache.commons.lang3.Validate;
-
-import com.github.tobato.fastdfs.exception.FdfsUnsupportStorePathException;
 import com.github.tobato.fastdfs.domain.proto.OtherConstants;
 import com.github.tobato.fastdfs.domain.proto.mapper.DynamicFieldType;
 import com.github.tobato.fastdfs.domain.proto.mapper.FdfsColumn;
+import com.github.tobato.fastdfs.exception.FdfsUnsupportStorePathException;
+import org.apache.commons.lang3.Validate;
 
 /**
  * 存储文件的路径信息
@@ -14,7 +13,7 @@ import com.github.tobato.fastdfs.domain.proto.mapper.FdfsColumn;
  */
 public class StorePath {
 
-    @FdfsColumn(index = 0, max = OtherConstants.FDFS_GROUP_NAME_MAX_LEN)
+    @FdfsColumn(max = OtherConstants.FDFS_GROUP_NAME_MAX_LEN)
     private String group;
 
     @FdfsColumn(index = 1, dynamicField = DynamicFieldType.allRestByte)
@@ -110,7 +109,7 @@ public class StorePath {
 
         // 获取group起始位置
         int pathStartPos = filePath.indexOf(group) + group.length() + 1;
-        String path = filePath.substring(pathStartPos, filePath.length());
+        String path = filePath.substring(pathStartPos);
         return new StorePath(group, path);
     }
 
@@ -127,7 +126,7 @@ public class StorePath {
             throw new FdfsUnsupportStorePathException("解析文件路径错误,有效的路径样式为(group/path) 而当前解析路径为".concat(filePath));
         }
         for (String item : paths) {
-            if (item.indexOf(SPLIT_GROUP_NAME) != -1) {
+            if (item.contains(SPLIT_GROUP_NAME)) {
                 return item;
             }
         }

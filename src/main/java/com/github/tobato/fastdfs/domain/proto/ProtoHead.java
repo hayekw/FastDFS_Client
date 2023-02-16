@@ -1,11 +1,11 @@
 package com.github.tobato.fastdfs.domain.proto;
 
+import com.github.tobato.fastdfs.domain.proto.mapper.BytesUtil;
+import com.github.tobato.fastdfs.exception.FdfsServerException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-
-import com.github.tobato.fastdfs.exception.FdfsServerException;
-import com.github.tobato.fastdfs.domain.proto.mapper.BytesUtil;
 
 /**
  * FDFS协议头定义
@@ -30,7 +30,7 @@ public class ProtoHead {
     /**
      * 报文类型8位
      */
-    private byte cmd;
+    private final byte cmd;
     /**
      * 处理状态9位
      */
@@ -114,10 +114,9 @@ public class ProtoHead {
     /**
      * 验证服务端返回报文有效性
      *
-     * @return
      * @throws IOException
      */
-    public boolean validateResponseHead() throws IOException {
+    public void validateResponseHead() throws IOException {
         // 检查是否是正确反馈报文
         if (cmd != CmdConstants.FDFS_PROTO_CMD_RESP) {
             throw new IOException(
@@ -131,7 +130,6 @@ public class ProtoHead {
         if (contentLength < 0) {
             throw new IOException("recv body length: " + contentLength + " < 0!");
         }
-        return true;
     }
 
     @Override

@@ -21,8 +21,8 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * FastFileStorageNewFileClientTest客户端
@@ -124,9 +124,8 @@ public class FastFileStorageNewImageClientTest {
      * @param fastImageFile
      * @return
      */
-    private StorePath uploadImageAndCrtThumbImage(FastImageFile fastImageFile) throws Exception {
-        StorePath path = storageClient.uploadImage(fastImageFile);
-        return path;
+    private StorePath uploadImageAndCrtThumbImage(FastImageFile fastImageFile) {
+        return storageClient.uploadImage(fastImageFile);
     }
 
     /**
@@ -213,7 +212,7 @@ public class FastFileStorageNewImageClientTest {
      * @return
      */
     private Set<MetaData> createMetaData() {
-        Set<MetaData> metaDataSet = new HashSet<MetaData>();
+        Set<MetaData> metaDataSet = new HashSet<>();
         metaDataSet.add(new MetaData("Author", "tobato"));
         metaDataSet.add(new MetaData("CreateDate", "2016-01-05"));
         return metaDataSet;

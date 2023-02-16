@@ -1,9 +1,9 @@
 package com.github.tobato.fastdfs.domain.fdfs;
 
-import java.util.Date;
-
 import com.github.tobato.fastdfs.domain.proto.OtherConstants;
 import com.github.tobato.fastdfs.domain.proto.mapper.FdfsColumn;
+
+import java.util.Date;
 
 /**
  * fastdfs中storage节点的状态信息
@@ -15,7 +15,7 @@ public class StorageState {
     /**
      * 状态代码
      */
-    @FdfsColumn(index = 0)
+    @FdfsColumn
     private byte status;
     /**
      * id

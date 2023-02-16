@@ -1,9 +1,10 @@
 package com.github.tobato.fastdfs.domain.proto.tracker;
 
-import org.junit.Test;
-
 import com.github.tobato.fastdfs.TestConstants;
 import com.github.tobato.fastdfs.domain.proto.tracker.internal.TrackerListGroupsRequest;
+import org.junit.Test;
+
+import java.util.stream.IntStream;
 
 /**
  * 列举Groups请求
@@ -20,10 +21,10 @@ public class TrackerListGroupsRequestTest {
     }
 
     private void printRequest(byte[] request) {
-        for (int i = 0; i < request.length; i++) {
+        IntStream.range(0, request.length).forEach(i -> {
             System.out.print(request[i]);
             System.out.print(" ");
-        }
+        });
     }
 
 }
